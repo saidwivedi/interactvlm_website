@@ -137,4 +137,106 @@ $(document).ready(function () {
     return Math.min(Math.max(this, min), max);
   };
 
+  // --- Pause/Resume functionality for carousels ---
+  let carouselPauseStates = {
+    carousel1: false,
+    carousel2: false,
+    carousel3: false,
+    carousel4: false
+  };
+
+  // Store carousel instances for easy access
+  const carouselInstances = {
+    carousel1: activeCarousels.find(c => c.element && c.element.id === 'results-hcontact'),
+    carousel2: activeCarousels.find(c => c.element && c.element.id === 'results-humanObjComp'),
+    carousel3: activeCarousels.find(c => c.element && c.element.id === 'results-humanObj'),
+    carousel4: activeCarousels.find(c => c.element && c.element.id === 'results-ocontact')
+  };
+
+  // Function to toggle pause/resume for a specific carousel
+  function toggleCarouselPause(carouselKey, buttonId) {
+    const instance = carouselInstances[carouselKey];
+    const button = document.getElementById(buttonId);
+    
+    if (!instance || !button) return;
+    
+    if (carouselPauseStates[carouselKey]) {
+      // Resume
+      instance.start();
+      carouselPauseStates[carouselKey] = false;
+      button.innerHTML = '<i class="fas fa-pause"></i> Pause';
+      button.classList.remove('paused');
+    } else {
+      // Pause
+      instance.stop();
+      carouselPauseStates[carouselKey] = true;
+      button.innerHTML = '<i class="fas fa-play"></i> Resume';
+      button.classList.add('paused');
+    }
+  }
+
+  // Add event listeners for pause buttons
+  const pauseBtn1 = document.getElementById('pauseBtn1');
+  if (pauseBtn1) {
+    pauseBtn1.addEventListener('click', () => toggleCarouselPause('carousel1', 'pauseBtn1'));
+  }
+
+  const pauseBtn2 = document.getElementById('pauseBtn2');
+  if (pauseBtn2) {
+    pauseBtn2.addEventListener('click', () => toggleCarouselPause('carousel2', 'pauseBtn2'));
+  }
+
+  const pauseBtn3 = document.getElementById('pauseBtn3');
+  if (pauseBtn3) {
+    pauseBtn3.addEventListener('click', () => toggleCarouselPause('carousel3', 'pauseBtn3'));
+  }
+
+  const pauseBtn4 = document.getElementById('pauseBtn4');
+  if (pauseBtn4) {
+    pauseBtn4.addEventListener('click', () => toggleCarouselPause('carousel4', 'pauseBtn4'));
+  }
+
+  // Global pause all button functionality (optional)
+  function pauseAllCarousels() {
+    Object.keys(carouselInstances).forEach(key => {
+      const instance = carouselInstances[key];
+      if (instance && !carouselPauseStates[key]) {
+        instance.stop();
+        carouselPauseStates[key] = true;
+      }
+    });
+    
+    // Update all button states
+    ['pauseBtn1', 'pauseBtn2', 'pauseBtn3', 'pauseBtn4'].forEach(btnId => {
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.innerHTML = '<i class="fas fa-play"></i> Resume';
+        btn.classList.add('paused');
+      }
+    });
+  }
+
+  function resumeAllCarousels() {
+    Object.keys(carouselInstances).forEach(key => {
+      const instance = carouselInstances[key];
+      if (instance && carouselPauseStates[key]) {
+        instance.start();
+        carouselPauseStates[key] = false;
+      }
+    });
+    
+    // Update all button states
+    ['pauseBtn1', 'pauseBtn2', 'pauseBtn3', 'pauseBtn4'].forEach(btnId => {
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+        btn.classList.remove('paused');
+      }
+    });
+  }
+
+  // Expose global functions to window for potential external use
+  window.pauseAllCarousels = pauseAllCarousels;
+  window.resumeAllCarousels = resumeAllCarousels;
+
 }); // End document ready
