@@ -1,0 +1,59 @@
+# InteractVLM Website .gitignore
+
+# OS generated files (macOS, Windows, Linux)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+ehthumbs.db
+Thumbs.db
+*~
+
+# macOS Finder files
+Icon?
+.DocumentRevisions-V100
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# macOS resource forks and extended attributes
+**/.DS_Store
+**/._*
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Maintenance scripts
+clean_macos_files.sh
+
+# Cache directories
+.cache/
+
+# Ignore all media files but keep CSS and JS
+media/upload/InteractVLM.pdf
+media/upload/InteractVLM_Poster.pdf
+media/upload/figures/
+media/upload/results/
+
+# Keep important files
+!media/upload/css/
+!media/upload/js/

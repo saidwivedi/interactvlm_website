@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="InteractVLM: 3D Interaction Reasoning from 2D Foundational Models"
+    />
+    <meta
+      name="keywords"
+      content="InteractVLM, HOI, 3DHOI, Interaction, Digital Avatar, Metaverse"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        InteractVLM: 3D Interaction Reasoning from 2D Foundational Models
+    </title>
+    <link rel="icon" href="ivlm.ico" type="image/x-icon">
+
+   
+
+    <link
+      href="./media/upload/css/googlefont.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./media/upload/css/bulma.min.css" />
+    <link rel="stylesheet" href="./media/upload/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./media/upload/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./media/upload/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="./media/upload/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./media/upload/css/index.css" />
+
+    <style>
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+      }
+      .render_wrapper {
+        position: relative;
+        height: 300px;
+      }
+      .render_wrapper_small {
+        position: relative;
+        height: 300px;
+      }
+      .render_div {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .nested-columns {
+        margin-bottom: 0 !important;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script defer src="./media/upload/js/fontawesome.all.min.js"></script>
+    <script src="./media/upload/js/57fb8d417e.js" crossorigin="anonymous"></script>
+    <script src="./media/upload/js/bulma-carousel.min.js"></script>
+    <script src="./media/upload/js/bulma-slider.min.js"></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="./media/upload/js/index.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+      </script>
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                  InteractVLM: 3D Interaction Reasoning from 2D Foundational Models
+              </h1>
+              <h1 class="is-size-3">
+                <strong style="color: brown">CVPR 2025</strong>
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                    <a href="https://saidwivedi.in/">Sai Kumar Dwivedi</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://anticdimi.github.io/">Dimitrije Antić</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://sha2nkt.github.io//">Shashank Tripathi</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://otaheri.github.io/">Omid Taheri</a><sup>1</sup>,</span>
+                  <br/>
+                  <span class="author-block">
+                    <a href="https://thoth.inrialpes.fr/people/schmid/">Cordelia Schmid</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://ps.is.mpg.de/person/black">Michael J. Black</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://dtzionas.com/">Dimitrios Tzionas</a><sup>2</sup></span>
+                </span>
+              </div>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Max Planck Institute for Intelligent Systems, Tübingen, Germany,</span>
+                <span class="author-block"><sup>2</sup>University of Amsterdam, the Netherlands,</span>
+                <span class="author-block"><sup>3</sup>Inria, École normale supérieure, France</span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://interactvlm.is.tue.mpg.de/media/upload/InteractVLM.pdf"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <svg
+                          class="svg-inline--fa fa-youtube fa-w-18"
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fab"
+                          data-icon="youtube"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 576 512"
+                          data-fa-i2svg=""
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+                          ></path></svg
+                        ><!-- <i class="fab fa-youtube"></i> Font Awesome fontawesome.com -->
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span>
+
+                  <!-- Github Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/saidwivedi/InteractVLM"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://interactvlm.is.tue.mpg.de/media/upload/InteractVLM_Poster.pdf"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-image"></i> <!-- or fa-file-alt for a doc-style icon -->
+                      </span>
+                      <span>Poster</span>
+                    </a>
+                  </span>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="https://interactvlm.is.tue.mpg.de/media/upload/figures/teaser.png" height="150%" />
+          <h2 class="subtitle has-text-centered" style="padding-top: 10px">
+            <p style="text-align: justify;">
+                We present InteractVLM, a novel method for estimating contact points on both human bodies and objects from a single in-the-wild image.
+                Our method goes beyond traditional binary contact estimation methods by estimating contact points on a human in relation to a specified object. 
+                We do so by leveraging the broad visual knowledge of a large Visual Language Model.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <br />
+    </section>
+
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+          <br />
+          <h2 class="title is-2" style="text-align:center;">
+            Joint Human-Object Reconstruction
+            <a href="https://download.is.tue.mpg.de/interactvlm/joint_reconstruction.mp4"
+               download
+               style="font-size: 0.6em; color: grey; margin-left: 10px; vertical-align: middle;"
+               title="Download video of selected results">
+              <i class="fas fa-download"></i> Video
+            </a>
+          </h2>          
+          
+          <br /><br />
+          <div class="container">
+            <div id="results-humanObj" class="carousel results-humanObj">
+
+                <!-- 1 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/frisbee__vcoco_000000447124.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/frisbee__vcoco_000000447124_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 2 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/baseball_bat__hake_train2015_HICO_train2015_00008763.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/baseball_bat__hake_train2015_HICO_train2015_00008763_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/bicycle__hake_train2015_HICO_train2015_00003529.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/bicycle__hake_train2015_HICO_train2015_00003529_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 4 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/book__hake_train2015_HICO_train2015_00006786.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/book__hake_train2015_HICO_train2015_00006786_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 5 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/cake__hake_train2015_HICO_train2015_00007819.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/cake__hake_train2015_HICO_train2015_00007819_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 6 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/handbag__vcoco_000000206235.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/handbag__vcoco_000000206235_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 7 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/backpack__hake_train2015_HICO_train2015_00003386.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/backpack__hake_train2015_HICO_train2015_00003386_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 8 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/cup__hake_train2015_HICO_train2015_00011504.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/cup__hake_train2015_HICO_train2015_00011504_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 9 -->   
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/handbag__vcoco_000000160480.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/handbag__vcoco_000000160480_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 10 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/bicycle__hake_train2015_HICO_train2015_00002209.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/bicycle__hake_train2015_HICO_train2015_00002209_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 11 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/motorcycle__hake_train2015_HICO_train2015_00008816.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/motorcycle__hake_train2015_HICO_train2015_00008816_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 12 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/sandwich__hake_train2015_HICO_train2015_00009195.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/sandwich__hake_train2015_HICO_train2015_00009195_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 13 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/suitcase__hake_train2015_HICO_train2015_00009194.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/suitcase__hake_train2015_HICO_train2015_00009194_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+                <!-- 14 -->
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/suitcase__vcoco_000000249561.png" />
+                </div>
+                <div class="item item-steve render_wrapper_small">
+                    <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj/suitcase__vcoco_000000249561_combined.gif" />
+                    <div class="gif-overlay-text-bottom">InteractVLM</div>
+                </div>
+  
+            </div>
+            <div style="text-align: center; font-size: 1.5em; padding: 20px">
+              <b>Joint 3D reconstruction of human and object from a single image using InteractVLM's inferred contact regions.
+              </b>
+            </div>       
+          </div>
+        </div>
+      </section>
+
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container">
+            <div id="results-humanObjComp" class="carousel results-humanObjComp">
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/skateboard__000000186534.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/skateboard__000000186534_phosa.gif" />
+                  <div class="gif-overlay-text-bottom">PHOSA</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/skateboard__000000186534_ivlm.gif" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/tennis_racket__000000041045.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/tennis_racket__000000041045_phosa.gif" />
+                  <div class="gif-overlay-text-bottom">PHOSA</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/tennis_racket__000000041045_ivlm.gif" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/laptop__000000034057.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/laptop__000000034057_phosa.gif" />
+                  <div class="gif-overlay-text-bottom">PHOSA</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/humanObj_compare/laptop__000000034057_ivlm.gif" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+              
+  
+            </div>
+            <div style="text-align: center; font-size: 1.5em; padding: 20px">
+              <b>Comparison of joint 3D reconstruction between InteractVLM and PHOSA.</b>
+              </b>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </section>
+
+    <section class="hero">
+        <div class="hero-body">
+          <br />
+          <h2 class="title is-2" style="text-align:center;">
+            Contact Estimation - Human and Object
+            <a href="https://download.is.tue.mpg.de/interactvlm/contact_results.mp4"
+               download
+               style="font-size: 0.5em; color: grey; margin-left: 10px; vertical-align: middle;"
+               title="Download video of selected results">
+              <i class="fas fa-download"></i> Video
+            </a>
+          </h2>
+          <br /> <br />
+          <div class="container">
+            <div id="results-hcontact" class="carousel results-hcontact">
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact3/vcoco_000000579760.jpg" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact3/vcoco_000000579760_bench_deco.gif" />
+                  <div class="gif-overlay-text-top">Bench</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact3/vcoco_000000579760_bench_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Bench</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+              <div class="item item-steve render_wrapper">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact3/vcoco_000000579760_bottle_deco.gif" />
+                  <div class="gif-overlay-text-top">Bottle</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact3/vcoco_000000579760_bottle_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Bottle</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact1/vcoco_000000569758.jpg" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact1/vcoco_000000569758_baseball_glove_deco.gif" />
+                  <div class="gif-overlay-text-top">Glove</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact1/vcoco_000000569758_baseball_glove_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Glove</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+              <div class="item item-steve render_wrapper">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact1/vcoco_000000569758_sports_ball_deco.gif" />
+                  <div class="gif-overlay-text-top">Ball</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact1/vcoco_000000569758_sports_ball_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Ball</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact2/vcoco_000000550870.jpg" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact2/vcoco_000000550870_dining_table_deco.gif" />
+                  <div class="gif-overlay-text-top">Table</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact2/vcoco_000000550870_dining_table_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Table</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+              <div class="item item-steve render_wrapper">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact2/vcoco_000000550870_pizza_deco.gif" />
+                  <div class="gif-overlay-text-top">Pizza</div>
+                  <div class="gif-overlay-text-bottom">DECO</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/hcontact/hcontact2/vcoco_000000550870_pizza_ivlm.gif" />
+                  <div class="gif-overlay-text-top">Pizza</div>
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+            </div>
+            <div style="text-align: center; font-size: 1.5em; padding: 20px">
+              <b>Semantic human contact estimation from a single image, conditioned on object label.</b>
+            </div>
+          </div>
+        </div>
+        <!-- <br /> -->
+      </section>
+
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <div id="results-ocontact" class="carousel results-ocontact">
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img1.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img1_piad.png" />
+                  <div class="gif-overlay-text-bottom">PIAD</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img1_ivlm.png" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img2.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img2_piad.png" />
+                  <div class="gif-overlay-text-bottom">PIAD</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img2_ivlm.png" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+  
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img3.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img3_piad.png" />
+                  <div class="gif-overlay-text-bottom">PIAD</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img3_ivlm.png" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div> 
+
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img4.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img4_piad.png" />
+                  <div class="gif-overlay-text-bottom">PIAD</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img4_ivlm.png" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img5.png" />
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img5_piad.png" />
+                  <div class="gif-overlay-text-bottom">PIAD</div>
+              </div>
+              <div class="item item-steve render_wrapper_small">
+                  <img src="https://interactvlm.is.tue.mpg.de/media/upload/results/ocontact/img5_ivlm.png" />
+                  <div class="gif-overlay-text-bottom">InteractVLM</div>
+              </div>
+              
+            </div>
+            <div style="text-align: center; font-size: 1.5em; padding: 20px">
+              <b>Object affordance prediction from single in-the-wild image.</b>
+              </b>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </section>
+
+      <section class="hero is-light is-small">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <br /> <br />
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p margin="0">
+                We introduce InteractVLM, a novel method to estimate 3D contact points on human bodies and objects from single in-the-wild images, enabling accurate human-object joint reconstruction in 3D. 
+                This is challenging due to occlusions, depth ambiguities, and widely varying object shapes. 
+                Existing methods rely on 3D contact annotations collected via expensive motion-capture systems or tedious manual labeling, limiting scalability and generalization. 
+                To overcome this, InteractVLM harnesses the broad visual knowledge of large Vision-Language Models (VLMs), fine-tuned with limited 3D contact data. 
+                However, directly applying these models is non-trivial, as they reason only in 2D, while human-object contact is inherently 3D. 
+                Thus we introduce a novel Render-Localize-Lift module that: (1) embeds 3D body and object surfaces in 2D space via multi-view rendering, (2) trains a novel multi-view localization model (MV-Loc) to infer contacts in 2D, and (3) lifts these to 3D. 
+                Additionally, we propose a new task called Semantic Human Contact estimation, where human contact predictions are conditioned explicitly on object semantics, enabling richer interaction modeling. 
+                InteractVLM outperforms existing work on contact estimation and also facilitates 3D reconstruction from an in-the wild image.
+              </p>
+            </div>
+          </div>
+        </div>
+        <br /> <br />
+
+        <!-- Paper video. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Summary Video</h2>
+            <div class="publication-video">
+              <iframe
+                src="https://www.youtube.com/embed/brxygxM1nRk"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </div>
+
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Overview. -->
+        <div
+          class="columns is-centered has-text-centered"
+          style="margin-top: 15px">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Method Overview</h2>
+            <img src="https://interactvlm.is.tue.mpg.de/media/upload/figures/method.png" />
+            <div class="content has-text-justified" style="padding-top: 15px">
+                Given an image, $I$, and 
+                prompt text, $T_{inp}$, 
+                our VLM, $\Psi$, produces contact tokens for humans and objects, &lt;&lt;HCON&gt;&gt; and &lt;&lt;OCON&gt;&gt;, 
+                which are projected ($\Gamma$) into feature embeddings, $E^{H}$ and $E^{O}$. 
+                These guide a ``Multi-View [contact] 
+                Localization'' model. 
+                This renders the 3D human and object geometry via cameras, $K$, 
+                into multi-view 2D renders and passes these to encoder, $\Theta$, while decoders, 
+                $\Omega^H$, $\Omega^O$, estimate and highlight 2D contacts in these renders.
+            </div>
+          </div>
+        </div>
+
+        <br /><br />
+
+        <!-- Acknowledgments. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Acknowledgments & Disclosure</h2>
+
+            <div class="content has-text-justified">
+              We thank
+              <a href="https://is.mpg.de/person/acseke">Alpár Cseke</a> 
+               for his assistance with evaluating joint human-object reconstruction.
+              We also thank
+              <a href="https://ps.is.mpg.de/person/talexiadis">Tsvetelina Alexiadis</a> and
+              <a href="https://ps.is.mpg.de/person/tmcconnell">Taylor Obersat</a>
+              for MTurk evaluation,
+              <a href="https://yfeng95.github.io">Yao Feng</a>,
+              <a href="https://kulits.github.io">Peter Kulits</a>, and
+              <a href="https://ps.is.mpg.de/person/mdiomataris">Markos Diomataris</a> 
+              for their valuable feedback and
+              <a href="https://is.mpg.de/~bpellkofer">Benjamin Pellkofer</a>
+              for IT support.
+              SKD is supported by the International Max Planck Research School for Intelligent Systems (IMPRS-IS). 
+              The UvA part of the team is supported by an ERC Starting Grant (STRIPES, 101165317, PI: D. Tzionas).
+              <br /><br />
+              DT has received a research gift fund from Google.
+              While MJB is a co-founder and Chief Scientist at Meshcapade, his research in this project was performed solely at, and funded solely by, the Max Planck Society.
+            </div>
+          </div>
+        </div>
+        <!-- Acknowledgments. -->
+
+        <!-- Contact. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">
+              Contact
+            </h2>
+
+            <div class="content has-text-justified">
+              For technical questions, please contact
+              <a href="mailto: sai.dwivedi@tue.mpg.de"
+                >sai.dwivedi@tue.mpg.de</a
+              >
+              <br />
+
+              For commercial licensing, please contact
+              <a href="mailto: ps-licensing@tue.mpg.de"
+                >ps-licensing@tue.mpg.de</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre>
+<code>@inproceedings{dwivedi_interactvlm_2025,
+  title     = {{InteractVLM: 3D Interaction Reasoning from 2D Foundational Models}},
+  author    = {Dwivedi, Sai Kumar and Antić, Dimitrije and Tripathi, Shashank and Taheri, Omid and Schmid, Cordelia and Black, Michael J. and Tzionas, Dimitrios},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month     = {June},
+  year      = {2025},
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <a class="icon-link" href="">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+          <a
+            class="icon-link"
+            href="https://github.com/saidwivedi/InteractVLM"
+            class="external-link"
+            disabled
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p style="text-align: center">
+                Source code mainly borrowed from
+                <a href="https://xiuyuliang.cn">Yuliang Xiu</a>'s
+                <a href="https://xiuyuliang.cn/econ/">ECON website</a> 
+              </p>
+              <p style="text-align: center">
+                For technical questions, please contact
+                <a href="mailto: sai.dwivedi@tue.mpg.de">Sai Kumar Dwivedi</a><br />
+                For commercial licensing, please contact
+                <a href="mailto: ps-licensing@tue.mpg.de">ps-licensing</a><br />
+                <small
+                  >© 2025 Max-Planck-Gesellschaft
+                  <<small class="text-muted ml-1 mr-1">-</small
+                  ><a href="imprint.html">Imprint</a
+                  ><small class="text-muted ml-1 mr-1">-</small
+                  ><a href="privacy-policy.html">Privacy Policy</a></small> >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+  </body>
+</html>
