@@ -1,4 +1,14 @@
+<div align="center">
+
 # InteractVLM Project Website
+
+<p align="center">
+  <img src="https://img.shields.io/badge/CVPR-2025-blue" alt="CVPR 2025">
+</p>
+
+[**🌐 Website**](https://interactvlm.is.tue.mpg.de/) | [**📄 Paper**](https://interactvlm.is.tue.mpg.de/media/upload/paper.pdf) | [**💻 Code**](https://github.com/saidwivedi/InteractVLM) | [**🎬 Video**](https://www.youtube.com/embed/brxygxM1nRk)
+
+</div>
 
 This repository contains the source code for the InteractVLM project website, presenting our CVPR 2025 paper "InteractVLM: 3D Interaction Reasoning from 2D Foundational Models".
 
